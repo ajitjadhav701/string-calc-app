@@ -1,11 +1,27 @@
 import React, { useState } from "react";
 const StringCalculator: React.FC = () => {
   const [inputText, setInputText] = useState<string>("");
-  const [output, setOutput] = useState<string>("");
+  const [output, setOutput] = useState<string | number>("");
 
   const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputText(e.target.value);
   };
+  const additionHandler=()=>{
+    try {
+      const sum = add(inputText.trim());
+      setOutput(sum ?? 0);
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : "An unexpected error occurred in calculation";
+      setOutput(errorMessage);
+    }
+  }
+
+  const add = (inputString:string)=>{
+    setOutput('');
+    if(inputString.length === 0){
+      return 0;
+    }
+  }
   return (
     <>
       <div className="flex flex-col items-center justify-center ">
@@ -23,6 +39,7 @@ const StringCalculator: React.FC = () => {
         <button
           data-testid="add-button"
           className="m-4 px-4 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
+          onClick={additionHandler}
         >
           Add
         </button>

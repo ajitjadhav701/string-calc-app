@@ -18,3 +18,11 @@ it("Should update textarea value onChange event", () => {
     fireEvent.change(textArea, { target: { value: '1,2,3' } });
     expect(textArea).toHaveValue('1,2,3');
   });
+
+it("Should give output as 0 when no value entered in textarea", () => {
+    render(<StringCalculator/>);
+    const addButton = screen.getByTestId("add-button");
+    fireEvent.click(addButton);
+    const output = screen.getByTestId("output-box");
+    expect(output).toHaveTextContent("0");
+  });
