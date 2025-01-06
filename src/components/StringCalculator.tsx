@@ -21,6 +21,7 @@ const StringCalculator: React.FC = () => {
     if(inputString.length === 0){
       return 0;
     }
+    return parseInt(inputString, 10);
   }
   return (
     <>

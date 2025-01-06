@@ -26,3 +26,13 @@ it("Should give output as 0 when no value entered in textarea", () => {
     const output = screen.getByTestId("output-box");
     expect(output).toHaveTextContent("0");
   });
+  
+it("If only one number entered give output as that number", () => {
+    render(<StringCalculator/>);
+    const addButton = screen.getByTestId("add-button");
+    const textArea = screen.getByTestId("textarea-field");
+    fireEvent.change(textArea, { target: { value: '1' } });
+    fireEvent.click(addButton);
+    const output = screen.getByTestId("output-box");
+    expect(output).toHaveTextContent("1");
+  });
