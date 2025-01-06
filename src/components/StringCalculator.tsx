@@ -17,11 +17,19 @@ const StringCalculator: React.FC = () => {
   }
 
   const add = (inputString:string)=>{
+    //remove previous output
     setOutput('');
+
+    //if empty string is provided
     if(inputString.length === 0){
       return 0;
     }
-    return parseInt(inputString, 10);
+
+    //if entered only one valid number
+    if (!isNaN(Number(inputString))) {
+      return inputString; 
+    }
+
   }
   return (
     <>
