@@ -30,9 +30,9 @@ const StringCalculator: React.FC = () => {
       return inputString; 
     }
 
-    //if string entered with comma separated numbers
+    //if string entered with comma and new line separated numbers
     return inputString
-      .split(",")
+      .split(/[,|\n]+/)
       .map(Number)
       .reduce((sum, num) => sum + num, 0);
   }

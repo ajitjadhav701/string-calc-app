@@ -45,3 +45,12 @@ it("Should give sum for comma (,) separated numbers", () => {
     const output = screen.getByTestId("output-box");
     expect(output).toHaveTextContent("10");
   });
+it("Should give sum for new line (\n) separated numbers", () => {
+    render(<StringCalculator/>);
+    const addButton = screen.getByTestId("add-button");
+    const textArea = screen.getByTestId("textarea-field");
+    fireEvent.change(textArea, { target: { value: '1,2,3\n4,5' } });
+    fireEvent.click(addButton);
+    const output = screen.getByTestId("output-box");
+    expect(output).toHaveTextContent("15");
+  });
