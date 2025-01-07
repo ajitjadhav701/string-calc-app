@@ -51,10 +51,10 @@ const StringCalculator: React.FC = () => {
       throw new Error(`Negative numbers not allowed: ${allNegativenums}`);
     }
 
-    return inputString
-      .split(delimiterRegex)
-      .map(Number)
-      .reduce((sum, num) => sum + num, 0);
+    // Filter out numbers greater than 1000
+    const filteredNumbers = inputNumbers.filter(num => num <= 1000);
+
+    return filteredNumbers.reduce((sum, num) => sum + num, 0);
   }
   return (
     <>
