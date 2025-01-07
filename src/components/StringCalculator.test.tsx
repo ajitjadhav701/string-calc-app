@@ -63,3 +63,12 @@ it("Should give sum for different delimiters like //$\n2$5,5,6 or //|\n1|2|3|4 "
     const output = screen.getByTestId("output-box");
     expect(output).toHaveTextContent("18");
   });
+it("Should give error if negative numbers are entered", () => {
+    render(<StringCalculator/>);
+    const addButton = screen.getByTestId("add-button");
+    const textArea = screen.getByTestId("textarea-field");
+    fireEvent.change(textArea, { target: { value: '1,2,-3,-4,-5' } });
+    fireEvent.click(addButton);
+    const output = screen.getByTestId("output-box");
+    expect(output).toHaveTextContent("Negative numbers not allowed: -3, -4, -5");
+  });
