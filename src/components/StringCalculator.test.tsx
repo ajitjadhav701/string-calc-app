@@ -65,4 +65,9 @@ describe('StringCalculator component', () => {
     fireEvent.click(addButton);
     expect(outputBox).toHaveTextContent("3");
   });
+  it("Should match Delimiters of any length //[***]\n1***2***3", () => {
+    fireEvent.change(textArea, { target: { value: '//[***]\n1***2***3' } });
+    fireEvent.click(addButton);
+    expect(outputBox).toHaveTextContent("6");
+  });
 });
