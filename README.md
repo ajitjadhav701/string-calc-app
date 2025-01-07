@@ -1,4 +1,3 @@
-# Simple React JS Project
 # String Calculator App
 Calculates the sum of positive numbers entered in a textarea, with numbers separated by either a custom delimiter (defined by the user) or a newline. If any negative numbers are provided, an error is thrown and the message is displayed on the screen.
 
@@ -32,3 +31,15 @@ Builds the app for production to the `build` folder.\
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
+
+### `npm run deploy`
+
+Builds the React app and deploys it to GitHub Pages. The deployed app is accessible through the URL specified in the homepage field of the package.json file.
+
+### Deployed on Github
+
+[String Calculator App](https://ajitjadhav701.github.io/string-calculator-app/)
+
+#### Developed by
+
+[Ajit Jadhav](www.linkedin.com/in/ajitjadhav0912)
