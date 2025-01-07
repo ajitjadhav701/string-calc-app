@@ -30,6 +30,11 @@ const StringCalculator: React.FC = () => {
       return inputString; 
     }
 
+    //if string entered with comma separated numbers
+    return inputString
+      .split(",")
+      .map(Number)
+      .reduce((sum, num) => sum + num, 0);
   }
   return (
     <>
