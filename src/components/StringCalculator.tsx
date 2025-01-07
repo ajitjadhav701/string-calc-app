@@ -29,10 +29,21 @@ const StringCalculator: React.FC = () => {
     if (!isNaN(Number(inputString))) {
       return inputString; 
     }
-
-    //if string entered with comma and new line separated numbers
+    //default delemeters comma and new line
+    let delimiters = [',', '\n']; 
+    //Support different delimiters
+    if (inputString.startsWith("//")) {
+      const delimiterMatch = inputString.match(/^\/\/(.+)\n/);
+      if (delimiterMatch) {
+        const customDelimiter = delimiterMatch[1].replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+        delimiters.push(customDelimiter);
+        inputString = inputString.slice(delimiterMatch[0].length);
+      }
+    }
+    const delimiterRegex = new RegExp(`[${delimiters.join('')}]`);
+   
     return inputString
-      .split(/[,|\n]+/)
+      .split(delimiterRegex)
       .map(Number)
       .reduce((sum, num) => sum + num, 0);
   }
