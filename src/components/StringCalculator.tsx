@@ -35,7 +35,7 @@ const StringCalculator: React.FC = () => {
     if (inputString.startsWith("//")) {
       const delimiterMatch = inputString.match(/^\/\/(.+)\n/);
       if (delimiterMatch) {
-        const customDelimiter = delimiterMatch[1].replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+        const customDelimiter = delimiterMatch[1].replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&");
         delimiters.push(customDelimiter);
         inputString = inputString.slice(delimiterMatch[0].length);
       }
