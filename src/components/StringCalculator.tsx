@@ -42,6 +42,15 @@ const StringCalculator: React.FC = () => {
     }
     const delimiterRegex = new RegExp(`[${delimiters.join('')}]`);
    
+    const inputNumbers = inputString.split(delimiterRegex).map(Number);
+
+    //if negative numbers present 
+    const negativeNumbers = inputNumbers.filter(num => num < 0);
+    if (negativeNumbers.length > 0) {
+      const allNegativenums = negativeNumbers.join(', ');
+      throw new Error(`Negative numbers not allowed: ${allNegativenums}`);
+    }
+
     return inputString
       .split(delimiterRegex)
       .map(Number)
