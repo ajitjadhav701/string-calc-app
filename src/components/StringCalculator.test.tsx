@@ -59,4 +59,10 @@ describe('StringCalculator component', () => {
     fireEvent.click(addButton);
     expect(outputBox).toHaveTextContent("Negative numbers not allowed: -3, -4, -5");
   });
+
+  it("Should ignore number if greater than 1000", () => {
+    fireEvent.change(textArea, { target: { value: '1,2,1001' } });
+    fireEvent.click(addButton);
+    expect(outputBox).toHaveTextContent("3");
+  });
 });
