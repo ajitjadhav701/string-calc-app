@@ -25,10 +25,6 @@ const StringCalculator: React.FC = () => {
       return 0;
     }
 
-    //if entered only one valid number
-    if (!isNaN(Number(inputString))) {
-      return inputString; 
-    }
     //default delemeters comma and new line
     let delimiters = [',', '\n']; 
     //Support different delimiters
